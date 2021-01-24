@@ -38,6 +38,10 @@ app.post("/upload", uploadImage.array("files", 12), async (req, res) => {
   res.send("asdsd");
 });
 
+app.get("/trip", (req,res) =>{
+  res.send({name:"hieuuu"})
+})
+
 mongoose
   .connect(config.get("dbConfig.url"), {
     useNewUrlParser: true,
@@ -51,6 +55,8 @@ mongoose
     console.log(err);
   });
 
-app.listen(3000, () => {
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
   console.log("listening.....");
 });
